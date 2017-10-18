@@ -16,7 +16,22 @@ pygame.init()
 done = False
 
 # Insert a formula for drawing the catapult; base, fulcrum, item thrown, and forearm
-Class pymunk.Circle(None, 5, offset=())
+def fill_space(space, custom_color=(255,255,255,255)):
+    b = pymunk.Body(body_type=pymunk.Body.KINEMATIC)
+    b.position = (500, 500)
+    s = pymunk.Circle(b, 10)
+    space.add(s)
+
+def main():
+    space = pymunk.Space()
+    space = pymunk.Space()
+    space.gravity = (0.0, -900.0)
+    fill_space(space)
+
+    options = pymunk.SpaceDebugDrawOptions()
+    space.step(1)
+    space.step(2)
+    space.debug_draw(options)
 
 # class Catapult():
 #     def __init__(self,v0,angle,y0,g = -9.8):
